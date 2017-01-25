@@ -1,4 +1,4 @@
-# cherry-boom
+# cherry-bomb
 parse api-blueprint to auto-create base gago-data project code
 
 use drafter to parse api-blueprint
