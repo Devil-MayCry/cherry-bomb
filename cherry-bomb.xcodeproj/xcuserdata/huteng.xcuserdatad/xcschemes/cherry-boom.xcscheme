@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "172B2FAC1E30AD7300AC9B86"
-               BuildableName = "cherry-boom"
-               BlueprintName = "cherry-boom"
-               ReferencedContainer = "container:cherry-boom.xcodeproj">
+               BuildableName = "cherry-bomb"
+               BlueprintName = "cherry-bomb"
+               ReferencedContainer = "container:cherry-bomb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "172B2FAC1E30AD7300AC9B86"
-            BuildableName = "cherry-boom"
-            BlueprintName = "cherry-boom"
-            ReferencedContainer = "container:cherry-boom.xcodeproj">
+            BuildableName = "cherry-bomb"
+            BlueprintName = "cherry-bomb"
+            ReferencedContainer = "container:cherry-bomb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "172B2FAC1E30AD7300AC9B86"
-            BuildableName = "cherry-boom"
-            BlueprintName = "cherry-boom"
-            ReferencedContainer = "container:cherry-boom.xcodeproj">
+            BuildableName = "cherry-bomb"
+            BlueprintName = "cherry-bomb"
+            ReferencedContainer = "container:cherry-bomb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "172B2FAC1E30AD7300AC9B86"
-            BuildableName = "cherry-boom"
-            BlueprintName = "cherry-boom"
-            ReferencedContainer = "container:cherry-boom.xcodeproj">
+            BuildableName = "cherry-bomb"
+            BlueprintName = "cherry-bomb"
+            ReferencedContainer = "container:cherry-bomb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

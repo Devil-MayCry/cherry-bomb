@@ -29,7 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		172B2FAD1E30AD7300AC9B86 /* cherry-boom */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cherry-boom"; sourceTree = BUILT_PRODUCTS_DIR; };
+		172B2FAD1E30AD7300AC9B86 /* cherry-bomb */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cherry-bomb"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172B2FB01E30AD7300AC9B86 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		172B2FBC1E30AFF900AC9B86 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = config.h; path = include/drafter/config.h; sourceTree = "<group>"; };
 		172B2FBD1E30AFF900AC9B86 /* ConversionContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ConversionContext.h; path = include/drafter/ConversionContext.h; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		172B2FAE1E30AD7300AC9B86 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				172B2FAD1E30AD7300AC9B86 /* cherry-boom */,
+				172B2FAD1E30AD7300AC9B86 /* cherry-bomb */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		172B2FAC1E30AD7300AC9B86 /* cherry-boom */ = {
+		172B2FAC1E30AD7300AC9B86 /* cherry-bomb */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 172B2FB41E30AD7300AC9B86 /* Build configuration list for PBXNativeTarget "cherry-boom" */;
+			buildConfigurationList = 172B2FB41E30AD7300AC9B86 /* Build configuration list for PBXNativeTarget "cherry-bomb" */;
 			buildPhases = (
 				172B2FA91E30AD7300AC9B86 /* Sources */,
 				172B2FAA1E30AD7300AC9B86 /* Frameworks */,
@@ -176,9 +176,9 @@
 			);
 			dependencies = (
 			);
-			name = "cherry-boom";
+			name = "cherry-bomb";
 			productName = "cherry-boom";
-			productReference = 172B2FAD1E30AD7300AC9B86 /* cherry-boom */;
+			productReference = 172B2FAD1E30AD7300AC9B86 /* cherry-bomb */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 172B2FA81E30AD7300AC9B86 /* Build configuration list for PBXProject "cherry-boom" */;
+			buildConfigurationList = 172B2FA81E30AD7300AC9B86 /* Build configuration list for PBXProject "cherry-bomb" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -208,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				172B2FAC1E30AD7300AC9B86 /* cherry-boom */,
+				172B2FAC1E30AD7300AC9B86 /* cherry-bomb */,
 			);
 		};
 /* End PBXProject section */
@@ -338,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		172B2FA81E30AD7300AC9B86 /* Build configuration list for PBXProject "cherry-boom" */ = {
+		172B2FA81E30AD7300AC9B86 /* Build configuration list for PBXProject "cherry-bomb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				172B2FB21E30AD7300AC9B86 /* Debug */,
@@ -347,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		172B2FB41E30AD7300AC9B86 /* Build configuration list for PBXNativeTarget "cherry-boom" */ = {
+		172B2FB41E30AD7300AC9B86 /* Build configuration list for PBXNativeTarget "cherry-bomb" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				172B2FB51E30AD7300AC9B86 /* Debug */,

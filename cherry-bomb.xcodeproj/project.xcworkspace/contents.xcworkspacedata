@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:cherry-boom.xcodeproj">
+      location = "self:/Users/huteng/api-cherry/cherry-boom/cherry-bomb.xcodeproj">
    </FileRef>
 </Workspace>
