@@ -14,6 +14,23 @@
 #include <fstream>
 #include <stdlib.h>
 
+void controllerMaker(char groupName[]) {
+    std::string controllerFileName = "/tmp/"+std::string(groupName)+"Controller.ts";
+    std::ofstream out(controllerFileName);
+    
+}
+
+void serviceMaker(char groupName[]) {
+    std::string serviceFileName = "/tmp/"+std::string(groupName)+"Service.ts";
+    std::ofstream out2(serviceFileName);
+}
+
+void repositoryMaker(char groupName[]) {
+    std::string repositoryFileName = "/tmp/"+std::string(groupName)+"Repository.ts";
+    
+    std::ofstream out3(repositoryFileName);
+}
+
 int main(int argc, const char * argv[]) {
     
     const char* blueprint ="# Group Land Weather\n"
@@ -51,12 +68,10 @@ int main(int argc, const char * argv[]) {
      strcpy(result2, resultInFile);
     result2[0] = tolower(result2[0]);
     std::cout<<result2;
-    std::string controllerFileName = "/tmp/"+std::string(result2)+"Controller.ts";
-    std::string serviceFileName = "/tmp/"+std::string(result2)+"Service.ts";
-    std::string repositoryFileName = "/tmp/"+std::string(result2)+"Repository.ts";
-    std::ofstream out(controllerFileName);
-    std::ofstream out2(serviceFileName);
-    std::ofstream out3(repositoryFileName);
+    controllerMaker(result2);
+    serviceMaker(result2);
+    repositoryMaker(result2);
+
 //    if (out.is_open())
 //    {
 //        out << "This is a line.\n";
@@ -65,3 +80,5 @@ int main(int argc, const char * argv[]) {
 //    }
 //    return 0;
 }
+
+
