@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172A680B1E417F180038767D /* ByteBuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 172A68051E417F180038767D /* ByteBuffer.cc */; };
+		172A680D1E417F180038767D /* MarkdownParser.cc in Sources */ = {isa = PBXBuildFile; fileRef = 172A68091E417F180038767D /* MarkdownParser.cc */; };
+		172A68111E417F360038767D /* file_system.mm in Sources */ = {isa = PBXBuildFile; fileRef = 172A68101E417F360038767D /* file_system.mm */; };
+		172A681E1E41800F0038767D /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A68131E41800F0038767D /* autolink.c */; };
+		172A681F1E41800F0038767D /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A68151E41800F0038767D /* buffer.c */; };
+		172A68201E41800F0038767D /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A68181E41800F0038767D /* markdown.c */; };
+		172A68211E41800F0038767D /* src_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A681A1E41800F0038767D /* src_map.c */; };
+		172A68221E41800F0038767D /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A681C1E41800F0038767D /* stack.c */; };
 		172B2FB11E30AD7300AC9B86 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FB01E30AD7300AC9B86 /* main.cpp */; };
 		172B2FD31E30B00B00AC9B86 /* libdrafter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FCE1E30B00B00AC9B86 /* libdrafter.a */; };
 		172B2FD41E30B00B00AC9B86 /* libmarkdownparser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FCF1E30B00B00AC9B86 /* libmarkdownparser.a */; };
@@ -29,6 +37,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		172A68051E417F180038767D /* ByteBuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ByteBuffer.cc; path = "include/markdown-parser/ByteBuffer.cc"; sourceTree = "<group>"; };
+		172A68061E417F180038767D /* ByteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByteBuffer.h; path = "include/markdown-parser/ByteBuffer.h"; sourceTree = "<group>"; };
+		172A68071E417F180038767D /* MarkdownNode.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MarkdownNode.cc; path = "include/markdown-parser/MarkdownNode.cc"; sourceTree = "<group>"; };
+		172A68081E417F180038767D /* MarkdownNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkdownNode.h; path = "include/markdown-parser/MarkdownNode.h"; sourceTree = "<group>"; };
+		172A68091E417F180038767D /* MarkdownParser.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MarkdownParser.cc; path = "include/markdown-parser/MarkdownParser.cc"; sourceTree = "<group>"; };
+		172A680A1E417F180038767D /* MarkdownParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkdownParser.h; path = "include/markdown-parser/MarkdownParser.h"; sourceTree = "<group>"; };
+		172A680E1E417F280038767D /* macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = macros.h; path = src/base/macros.h; sourceTree = "<group>"; };
+		172A680F1E417F360038767D /* file_system.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = file_system.h; path = src/fs/file_system.h; sourceTree = "<group>"; };
+		172A68101E417F360038767D /* file_system.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = file_system.mm; path = src/fs/file_system.mm; sourceTree = "<group>"; };
+		172A68131E41800F0038767D /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = autolink.c; path = include/sundown/autolink.c; sourceTree = "<group>"; };
+		172A68141E41800F0038767D /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = autolink.h; path = include/sundown/autolink.h; sourceTree = "<group>"; };
+		172A68151E41800F0038767D /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = buffer.c; path = include/sundown/buffer.c; sourceTree = "<group>"; };
+		172A68161E41800F0038767D /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = buffer.h; path = include/sundown/buffer.h; sourceTree = "<group>"; };
+		172A68171E41800F0038767D /* html_blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = html_blocks.h; path = include/sundown/html_blocks.h; sourceTree = "<group>"; };
+		172A68181E41800F0038767D /* markdown.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = markdown.c; path = include/sundown/markdown.c; sourceTree = "<group>"; };
+		172A68191E41800F0038767D /* markdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markdown.h; path = include/sundown/markdown.h; sourceTree = "<group>"; };
+		172A681A1E41800F0038767D /* src_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = src_map.c; path = include/sundown/src_map.c; sourceTree = "<group>"; };
+		172A681B1E41800F0038767D /* src_map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = src_map.h; path = include/sundown/src_map.h; sourceTree = "<group>"; };
+		172A681C1E41800F0038767D /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stack.c; path = include/sundown/stack.c; sourceTree = "<group>"; };
+		172A681D1E41800F0038767D /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stack.h; path = include/sundown/stack.h; sourceTree = "<group>"; };
+		172A68291E419F550038767D /* template */ = {isa = PBXFileReference; lastKnownFileType = folder; path = template; sourceTree = "<group>"; };
 		172B2FAD1E30AD7300AC9B86 /* cherry-bomb */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cherry-bomb"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172B2FB01E30AD7300AC9B86 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		172B2FBC1E30AFF900AC9B86 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = config.h; path = include/drafter/config.h; sourceTree = "<group>"; };
@@ -73,6 +102,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172A68011E417EDF0038767D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				172A68031E417EFA0038767D /* fs */,
+				172A68021E417EE70038767D /* base */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		172A68021E417EE70038767D /* base */ = {
+			isa = PBXGroup;
+			children = (
+				172A680E1E417F280038767D /* macros.h */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		172A68031E417EFA0038767D /* fs */ = {
+			isa = PBXGroup;
+			children = (
+				172A680F1E417F360038767D /* file_system.h */,
+				172A68101E417F360038767D /* file_system.mm */,
+			);
+			name = fs;
+			sourceTree = "<group>";
+		};
+		172A68041E417F080038767D /* markdown-parser */ = {
+			isa = PBXGroup;
+			children = (
+				172A68051E417F180038767D /* ByteBuffer.cc */,
+				172A68061E417F180038767D /* ByteBuffer.h */,
+				172A68071E417F180038767D /* MarkdownNode.cc */,
+				172A68081E417F180038767D /* MarkdownNode.h */,
+				172A68091E417F180038767D /* MarkdownParser.cc */,
+				172A680A1E417F180038767D /* MarkdownParser.h */,
+			);
+			name = "markdown-parser";
+			sourceTree = "<group>";
+		};
+		172A68121E417FFD0038767D /* sundown */ = {
+			isa = PBXGroup;
+			children = (
+				172A68131E41800F0038767D /* autolink.c */,
+				172A68141E41800F0038767D /* autolink.h */,
+				172A68151E41800F0038767D /* buffer.c */,
+				172A68161E41800F0038767D /* buffer.h */,
+				172A68171E41800F0038767D /* html_blocks.h */,
+				172A68181E41800F0038767D /* markdown.c */,
+				172A68191E41800F0038767D /* markdown.h */,
+				172A681A1E41800F0038767D /* src_map.c */,
+				172A681B1E41800F0038767D /* src_map.h */,
+				172A681C1E41800F0038767D /* stack.c */,
+				172A681D1E41800F0038767D /* stack.h */,
+			);
+			name = sundown;
+			sourceTree = "<group>";
+		};
 		172B2FA41E30AD7300AC9B86 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +178,8 @@
 		172B2FAF1E30AD7300AC9B86 /* cherry-boom */ = {
 			isa = PBXGroup;
 			children = (
+				172A68291E419F550038767D /* template */,
+				172A68011E417EDF0038767D /* src */,
 				172B2FB81E30ADD800AC9B86 /* lib */,
 				172B2FB71E30ADD000AC9B86 /* include */,
 				172B2FB01E30AD7300AC9B86 /* main.cpp */,
@@ -103,6 +191,8 @@
 		172B2FB71E30ADD000AC9B86 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				172A68121E417FFD0038767D /* sundown */,
+				172A68041E417F080038767D /* markdown-parser */,
 				172B2FBB1E30AE0D00AC9B86 /* jsoncpp */,
 				172B2FBA1E30AE0500AC9B86 /* drafter */,
 			);
@@ -218,8 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172A68201E41800F0038767D /* markdown.c in Sources */,
+				172A681E1E41800F0038767D /* autolink.c in Sources */,
+				172A680B1E417F180038767D /* ByteBuffer.cc in Sources */,
+				172A681F1E41800F0038767D /* buffer.c in Sources */,
+				172A68111E417F360038767D /* file_system.mm in Sources */,
 				172B2FB11E30AD7300AC9B86 /* main.cpp in Sources */,
+				172A68221E41800F0038767D /* stack.c in Sources */,
 				172B2FE51E30B16800AC9B86 /* jsoncpp.cpp in Sources */,
+				172A680D1E417F180038767D /* MarkdownParser.cc in Sources */,
+				172A68211E41800F0038767D /* src_map.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +366,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Debug;

@@ -14,37 +14,24 @@
 #include <fstream>
 #include <stdlib.h>
 #include <regex>
-
-const std::string BASE_CONTROLLER_FILE =
-"// Copyright 2016 huteng (hutengf@gagogroup.com). All rights reserved.,\n"
-"// Use of this source code is governed a license that can be found in the LICENSE file.\n"
-"import {Validator, BadRequestResponse, SuccessResponse, RegisterErrorResponse, AuthErrorResponse, ErrorResponse} from \"sakura-node\";\n"
-"import {BaseController, Request, Response, NextFunction} from \"../base/basecontroller\";\n"
-"export class ${group_name}Controller extends BaseController {\n"
-"static async ${method_name}(req: Request, res: Response, next: NextFunction): Promise<void> {"
-"}"
-"}"
-;
+#include "file_system.h"
 
 void ControllerMaker(std::string groupName, std::string methodName) {
     std::string controllerFileName = "/tmp/"+ groupName +"Controller.ts";
     std::ofstream out(controllerFileName);
-    std::string  file_input  = BASE_CONTROLLER_FILE;
+    std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontroller.ts");
     std::regex group_name_regex ("[\$][\{]group_name[\}]");
     std::regex method_name_regex ("[\$][\{]method_name[\}]");
     std::string result ="";
     result = std::regex_replace (file_input,group_name_regex, groupName);
     result = std::regex_replace (result, method_name_regex, methodName);
 
-    std::cout<<result+"\n";
+    //std::cout<<result+"\n";
         if (out.is_open())
         {
             out << result;
             out.close();
         }
-   // std::cout<<std::regex_replace (file_input,e,groupName);
-
-
 }
 
 void ServiceMaker(std::string groupName) {
@@ -146,34 +133,14 @@ std::string GetMethodName(Json::Value json_value) {
 }
 
 int main(int argc, const char * argv[]) {
-    
-    const char* blue_print ="# Group Land Weather\n"
-    "地块气象实时数据、预测数据、历史数据相关接口，请注意，所以的接口时间默认为 UTM+8 时区\n"
-    "## 地块实时天气 [/weather/realtime_land_weather{?land_id,basic_temperature}]\n"
-    "### 获取地块预测天气 [POST]\n"
-    "获取预测10天的指定天气\n"
-    "+ Response 200 (application/json)\n"
-    "    + Body\n"
-    "     {"
-    "      \"data\":{"
-    "        \"value\":20"
-    "       }"
-    "     } ";
-    Json::Value value = ConvertBluePrintToJson(blue_print);
-  //  std::cout<< value;
+    mdp::ByteBuffer blueprint = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/test_data/test.apib");
+    Json::Value value = ConvertBluePrintToJson(blueprint.c_str());
     std::string result2 = GetGroupName(value);
 
     std::string method_name = GetMethodName(value);
     ControllerMaker(result2, method_name);
     ServiceMaker(result2);
     RepositoryMaker(result2);
-//    if (out.is_open())
-//    {
-//        out << "This is a line.\n";
-//        out << "This is another line.\n";
-//        out.close();
-//    }
-//    return 0;
 }
 
 
