@@ -53,3 +53,57 @@ NDVI 的有效日期是有间隔的，通过该接口可以获取有效的 NDVI 
                 "code": 200
               }
             }
+
+# Group Weather Analysis
+气象分析.
+
+## 获取某个点的 气象 [/weather/values{?lon,lat}]
+
+### 获取某个点的 气象 的值序列 [GET]
+请注意气象的有效日期是有间隔的。
+
++ Parameters
+    + lon: 121.3 (number) - 点的经度
+    + lat: 44.7 (number) - 点的纬度
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "data": {
+                "weather": [
+                  {
+                    "date": "2015-01-01T00:00:00.000Z",
+                    "value": 0.1619
+                  },
+                  {
+                    "date": "2015-01-25T00:00:00.000Z",
+                    "value": 0.1708
+                  }
+                ],
+                "code": 200
+              }
+            }
+
+## 气象 有效的日期 [/weather/dates/{?years}]
+
+### 获取 气象 有效的日期 [GET]
+NDVI 的有效日期是有间隔的，通过该接口可以获取有效的 NDVI 日期。
+
++ Parameters
+    + years: [2016] (number[]) - 希望获取有效日期的年份
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+              "data": {
+                "dates": [
+                  "2016-01-04T16:00:00.000Z",
+                  "2016-01-08T16:00:00.000Z"
+                ],
+                "code": 200
+              }
+            }
