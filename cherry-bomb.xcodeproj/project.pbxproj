@@ -15,6 +15,11 @@
 		172A68201E41800F0038767D /* markdown.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A68181E41800F0038767D /* markdown.c */; };
 		172A68211E41800F0038767D /* src_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A681A1E41800F0038767D /* src_map.c */; };
 		172A68221E41800F0038767D /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 172A681C1E41800F0038767D /* stack.c */; };
+		172A68991E55498C0038767D /* controller_maker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 172A68971E55498C0038767D /* controller_maker.cpp */; };
+		172A689A1E554CBE0038767D /* drafter.h in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FBE1E30AFF900AC9B86 /* drafter.h */; };
+		172A689B1E554CF70038767D /* json-forwards.h in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FCC1E30B00400AC9B86 /* json-forwards.h */; };
+		172A689C1E554D070038767D /* json.h in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FCD1E30B00400AC9B86 /* json.h */; };
+		172A689D1E5550EE0038767D /* controller_maker.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 172A68981E55498C0038767D /* controller_maker.hpp */; };
 		172B2FB11E30AD7300AC9B86 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FB01E30AD7300AC9B86 /* main.cpp */; };
 		172B2FD31E30B00B00AC9B86 /* libdrafter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FCE1E30B00B00AC9B86 /* libdrafter.a */; };
 		172B2FD41E30B00B00AC9B86 /* libmarkdownparser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FCF1E30B00B00AC9B86 /* libmarkdownparser.a */; };
@@ -58,6 +63,9 @@
 		172A681C1E41800F0038767D /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stack.c; path = include/sundown/stack.c; sourceTree = "<group>"; };
 		172A681D1E41800F0038767D /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stack.h; path = include/sundown/stack.h; sourceTree = "<group>"; };
 		172A68291E419F550038767D /* template */ = {isa = PBXFileReference; lastKnownFileType = folder; path = template; sourceTree = "<group>"; };
+		172A68311E54693A0038767D /* test_data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test_data; sourceTree = "<group>"; };
+		172A68971E55498C0038767D /* controller_maker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = controller_maker.cpp; path = src/controller_maker.cpp; sourceTree = "<group>"; };
+		172A68981E55498C0038767D /* controller_maker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = controller_maker.hpp; path = src/controller_maker.hpp; sourceTree = "<group>"; };
 		172B2FAD1E30AD7300AC9B86 /* cherry-bomb */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "cherry-bomb"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172B2FB01E30AD7300AC9B86 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		172B2FBC1E30AFF900AC9B86 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = config.h; path = include/drafter/config.h; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 		172A68011E417EDF0038767D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				172A68961E55478F0038767D /* controller_file_maker */,
 				172A68031E417EFA0038767D /* fs */,
 				172A68021E417EE70038767D /* base */,
 			);
@@ -159,6 +168,15 @@
 			name = sundown;
 			sourceTree = "<group>";
 		};
+		172A68961E55478F0038767D /* controller_file_maker */ = {
+			isa = PBXGroup;
+			children = (
+				172A68971E55498C0038767D /* controller_maker.cpp */,
+				172A68981E55498C0038767D /* controller_maker.hpp */,
+			);
+			name = controller_file_maker;
+			sourceTree = "<group>";
+		};
 		172B2FA41E30AD7300AC9B86 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +196,7 @@
 		172B2FAF1E30AD7300AC9B86 /* cherry-boom */ = {
 			isa = PBXGroup;
 			children = (
+				172A68311E54693A0038767D /* test_data */,
 				172A68291E419F550038767D /* template */,
 				172A68011E417EDF0038767D /* src */,
 				172B2FB81E30ADD800AC9B86 /* lib */,
@@ -308,12 +327,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172A689D1E5550EE0038767D /* controller_maker.hpp in Sources */,
+				172A689C1E554D070038767D /* json.h in Sources */,
+				172A689B1E554CF70038767D /* json-forwards.h in Sources */,
+				172A689A1E554CBE0038767D /* drafter.h in Sources */,
 				172A68201E41800F0038767D /* markdown.c in Sources */,
 				172A681E1E41800F0038767D /* autolink.c in Sources */,
 				172A680B1E417F180038767D /* ByteBuffer.cc in Sources */,
 				172A681F1E41800F0038767D /* buffer.c in Sources */,
 				172A68111E417F360038767D /* file_system.mm in Sources */,
 				172B2FB11E30AD7300AC9B86 /* main.cpp in Sources */,
+				172A68991E55498C0038767D /* controller_maker.cpp in Sources */,
 				172A68221E41800F0038767D /* stack.c in Sources */,
 				172B2FE51E30B16800AC9B86 /* jsoncpp.cpp in Sources */,
 				172A680D1E417F180038767D /* MarkdownParser.cc in Sources */,
