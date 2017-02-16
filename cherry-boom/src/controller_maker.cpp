@@ -9,11 +9,36 @@
 #include "controller_maker.hpp"
 
 
-std::string ControllerMaker::ControllerMethodsMaker(std::string methodName) {
+std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value json) {
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
     std::regex method_name_regex ("[\$][\{]method_name[\}]");
     std::string result ="";
     result = std::regex_replace (file_input, method_name_regex, methodName);
+    if( json.size()!=0) {
+        std::string parameters_validator = "let validator: Validator = new Validator();\n";
+        std::string parameter_validator_templete = "const ${parameter_name}: number = validator.${to_parameter_type}(req.params[\"${parameter_name}\"], \"invalid ${parameter_name}\");";
+        std::regex parameter_name_regex ("[\$][\{]parameter_name[\}]");
+        std::regex parameter_type_regex ("[\$][\{]to_parameter_type[\}]");
+        Json::Value::Members mem = json.getMemberNames();
+        for(auto iter = mem.begin(); iter != mem.end(); iter++) {
+          std::string parameter_validator_temp = std::regex_replace (parameter_validator_templete, parameter_name_regex, *iter);
+          //  std::cout<<parameter_validator_temp;
+            std::string to_parameter_type_valitor;
+            if(json[*iter] == "number") {
+              to_parameter_type_valitor = "toNumber";
+            }else if(json[*iter] == "string") {
+              to_parameter_type_valitor = "toStr";
+            }else {
+              to_parameter_type_valitor = "toNaN";
+            }
+            parameter_validator_temp = std::regex_replace (parameter_validator_temp, parameter_type_regex, to_parameter_type_valitor);
+            parameters_validator += parameter_validator_temp;
+            parameters_validator += "\n";
+        }
+     std::regex method_parameters_validator_regex ("[\$][\{]method_parameters_validator[\}]");
+     result = std::regex_replace (result, method_parameters_validator_regex, parameters_validator);
+      
+    }
     return result;
 }
 

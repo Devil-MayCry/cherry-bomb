@@ -27,7 +27,7 @@
 class ControllerMaker {
 
 public:
-    static std::string ControllerMethodsMaker(std::string methodName);
+    static std::string ControllerMethodsMaker(std::string methodName, Json::Value json);
     
     static void ControllerFileMaker(std::string groupName, std::string methods_code);
     
