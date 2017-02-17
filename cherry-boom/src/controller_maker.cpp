@@ -8,12 +8,12 @@
 
 #include "controller_maker.hpp"
 
-
 std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value parameter_json) {
+    // get templete controller method, replace the tag as "${some_tag}" to create own code
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
     std::string result ="";
     result = BaseUtil::WordReplace(file_input, "method_name", methodName);
-    if( parameter_json.size()!=0) {
+    if( parameter_json.size() != 0) {
         std::string parameters_validator = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/template_controller_method_parameter_validator.ts");
         std::string parameter_validator_templete =  haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/template_controller_method_parameter_validator_item.ts");
         Json::Value::Members mem = parameter_json.getMemberNames();

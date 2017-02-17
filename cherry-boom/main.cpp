@@ -1,13 +1,11 @@
 //
 //  main.cpp
-//  cherryTest
+//  cherryBoom
 //
 //  Created by huteng on 17/1/9.
 //  Copyright © 2017年 huteng. All rights reserved.
 //
 #include <stdio.h>
-
-
 #include "controller_maker.hpp"
 //
 //
@@ -21,6 +19,11 @@
 //    std::ofstream out(repositoryFileName);
 //}
 //
+
+/*
+   use drafter library to parse api-blueprint file to json
+   use JsonCpp library to make json readable and could be use
+ */
 Json::Value ConvertBluePrintToJson(const char* blue_print) {
     drafter_parse_options parse_options = {false};
     drafter_serialize_options options;
@@ -35,6 +38,12 @@ Json::Value ConvertBluePrintToJson(const char* blue_print) {
     return value;
 }
 
+/*
+   By reading the json, get the groups name for controller file name, and class name
+                        get the href last word and action type for method name
+                        get the paremeters for validator
+   All controller function are in ControllerMaker Class
+ */
 void createControllerFile(Json::Value json) {
     for(int index_of_group = 0; index_of_group < json["content"][0]["content"].size(); index_of_group ++)
     {
@@ -57,7 +66,7 @@ void createControllerFile(Json::Value json) {
 }
 
 int main(int argc, const char * argv[]) {
-    mdp::ByteBuffer blueprint = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/test_data/test.apib");
+    mdp::ByteBuffer blueprint = haze::FileSystem::readFile("main.cpp");
     Json::Value value = ConvertBluePrintToJson(blueprint.c_str());
     createControllerFile(value);
  
@@ -66,6 +75,4 @@ int main(int argc, const char * argv[]) {
 //    
 //    ServiceMaker(result2);
 //    RepositoryMaker(result2);
-
-
 }

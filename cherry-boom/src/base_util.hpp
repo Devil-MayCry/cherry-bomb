@@ -22,6 +22,8 @@ class BaseUtil {
     
 public:
     
+    /* package regex libray regex_replace function , as word replace method , for convenient*/
+    
     static std::string WordReplace(std::string origin_string, std::string is_replaced_word, std::string replacing_word);
     
 };
