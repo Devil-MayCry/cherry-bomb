@@ -9,32 +9,36 @@
 #include "controller_maker.hpp"
 
 
-std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value json) {
+std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value parameter_json) {
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
     std::string result ="";
     result = BaseUtil::WordReplace(file_input, "method_name", methodName);
-    if( json.size()!=0) {
-        std::string parameters_validator = "let validator: Validator = new Validator();\n";
-        std::string parameter_validator_templete = "const ${parameter_name}: ${parameter_type} = validator.${to_parameter_type}(req.params[\"${parameter_name}\"], \"invalid ${parameter_name}\");";
-        Json::Value::Members mem = json.getMemberNames();
+    if( parameter_json.size()!=0) {
+        std::string parameters_validator = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/template_controller_method_parameter_validator.ts");
+        std::string parameter_validator_templete =  haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/template_controller_method_parameter_validator_item.ts");
+        Json::Value::Members mem = parameter_json.getMemberNames();
+        std::string parameter_validator_items = "";
         for(auto iter = mem.begin(); iter != mem.end(); iter++) {
           std::string parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_templete, "parameter_name", *iter);
             std::string to_parameter_type_valitor;
-            if(json[*iter] == "number") {
+            if(parameter_json[*iter] == "number") {
               to_parameter_type_valitor = "toNumber";
-            }else if(json[*iter] == "string") {
+            }else if(parameter_json[*iter] == "string") {
               to_parameter_type_valitor = "toStr";
             }else {
               to_parameter_type_valitor = "toNaN";
             }
-            parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "parameter_type", json[*iter].asString());
+            parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "parameter_type", parameter_json[*iter].asString());
             
             parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "to_parameter_type", to_parameter_type_valitor);
-            parameters_validator += parameter_validator_temp;
-            parameters_validator += "\n";
+            parameter_validator_items += parameter_validator_temp;
+            parameter_validator_items += "\n";
         }
-     result = BaseUtil::WordReplace(result, "method_parameters_validator", parameters_validator);
+     std::string method_validator_content = BaseUtil::WordReplace(parameters_validator, "method_parameters_items", parameter_validator_items);
+     result = BaseUtil::WordReplace(result, "method_parameters_validator", method_validator_content);
       
+    } else {
+     result = BaseUtil::WordReplace(result, "method_parameters_validator", "");
     }
     return result;
 }
@@ -136,7 +140,6 @@ std::string ControllerMaker::GetMethodName(Json::Value json_value) {
 
 Json::Value ControllerMaker::GetMethodParameters(Json::Value json_value) {
     Json::Value method_parameter_json = json_value["content"][0]["attributes"]["hrefVariables"]["content"];
-    //std::cout<<method_parameter_json;
     Json::Value parameter_type_json;
     
     for(int index = 0; index < method_parameter_json.size(); index ++) {
