@@ -27,6 +27,7 @@
 		172B2FD61E30B00B00AC9B86 /* libsos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FD11E30B00B00AC9B86 /* libsos.a */; };
 		172B2FD71E30B00B00AC9B86 /* libsundown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 172B2FD21E30B00B00AC9B86 /* libsundown.a */; };
 		172B2FE51E30B16800AC9B86 /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 172B2FE41E30B16800AC9B86 /* jsoncpp.cpp */; };
+		179CF36F1E5697ED006794FE /* base_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 179CF36D1E5697ED006794FE /* base_util.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +93,8 @@
 		172B2FD11E30B00B00AC9B86 /* libsos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsos.a; path = lib/drafter/libsos.a; sourceTree = "<group>"; };
 		172B2FD21E30B00B00AC9B86 /* libsundown.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsundown.a; path = lib/drafter/libsundown.a; sourceTree = "<group>"; };
 		172B2FE41E30B16800AC9B86 /* jsoncpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		179CF36D1E5697ED006794FE /* base_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = base_util.cpp; path = src/base_util.cpp; sourceTree = "<group>"; };
+		179CF36E1E5697ED006794FE /* base_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base_util.hpp; path = src/base_util.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,7 @@
 		172A68011E417EDF0038767D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				179CF36B1E5696D0006794FE /* util */,
 				172A68961E55478F0038767D /* controller_file_maker */,
 				172A68031E417EFA0038767D /* fs */,
 				172A68021E417EE70038767D /* base */,
@@ -270,6 +274,15 @@
 			name = jsoncpp;
 			sourceTree = "<group>";
 		};
+		179CF36B1E5696D0006794FE /* util */ = {
+			isa = PBXGroup;
+			children = (
+				179CF36D1E5697ED006794FE /* base_util.cpp */,
+				179CF36E1E5697ED006794FE /* base_util.hpp */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,6 +346,7 @@
 				172A689A1E554CBE0038767D /* drafter.h in Sources */,
 				172A68201E41800F0038767D /* markdown.c in Sources */,
 				172A681E1E41800F0038767D /* autolink.c in Sources */,
+				179CF36F1E5697ED006794FE /* base_util.cpp in Sources */,
 				172A680B1E417F180038767D /* ByteBuffer.cc in Sources */,
 				172A681F1E41800F0038767D /* buffer.c in Sources */,
 				172A68111E417F360038767D /* file_system.mm in Sources */,

@@ -11,18 +11,14 @@
 
 std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value json) {
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
-    std::regex method_name_regex ("[\$][\{]method_name[\}]");
     std::string result ="";
-    result = std::regex_replace (file_input, method_name_regex, methodName);
+    result = BaseUtil::WordReplace(file_input, "method_name", methodName);
     if( json.size()!=0) {
         std::string parameters_validator = "let validator: Validator = new Validator();\n";
-        std::string parameter_validator_templete = "const ${parameter_name}: number = validator.${to_parameter_type}(req.params[\"${parameter_name}\"], \"invalid ${parameter_name}\");";
-        std::regex parameter_name_regex ("[\$][\{]parameter_name[\}]");
-        std::regex parameter_type_regex ("[\$][\{]to_parameter_type[\}]");
+        std::string parameter_validator_templete = "const ${parameter_name}: ${parameter_type} = validator.${to_parameter_type}(req.params[\"${parameter_name}\"], \"invalid ${parameter_name}\");";
         Json::Value::Members mem = json.getMemberNames();
         for(auto iter = mem.begin(); iter != mem.end(); iter++) {
-          std::string parameter_validator_temp = std::regex_replace (parameter_validator_templete, parameter_name_regex, *iter);
-          //  std::cout<<parameter_validator_temp;
+          std::string parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_templete, "parameter_name", *iter);
             std::string to_parameter_type_valitor;
             if(json[*iter] == "number") {
               to_parameter_type_valitor = "toNumber";
@@ -31,12 +27,13 @@ std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json
             }else {
               to_parameter_type_valitor = "toNaN";
             }
-            parameter_validator_temp = std::regex_replace (parameter_validator_temp, parameter_type_regex, to_parameter_type_valitor);
+            parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "parameter_type", json[*iter].asString());
+            
+            parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "to_parameter_type", to_parameter_type_valitor);
             parameters_validator += parameter_validator_temp;
             parameters_validator += "\n";
         }
-     std::regex method_parameters_validator_regex ("[\$][\{]method_parameters_validator[\}]");
-     result = std::regex_replace (result, method_parameters_validator_regex, parameters_validator);
+     result = BaseUtil::WordReplace(result, "method_parameters_validator", parameters_validator);
       
     }
     return result;
@@ -51,12 +48,10 @@ void ControllerMaker::ControllerFileMaker(std::string groupName, std::string met
     std::string controllerFileName = "/tmp/"+ file_group_name +"controller.ts";
     std::ofstream out(controllerFileName);
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontroller.ts");
-    std::regex group_name_regex ("[\$][\{]group_name[\}]");
-    std::regex methods_code_regex ("[\$][\{]methods[\}]");
+    
     std::string result ="";
-    result = std::regex_replace (file_input,group_name_regex, method_group_name);
-    result = std::regex_replace (result,methods_code_regex, methods_code);
-    //std::cout<<result+"\n";
+    result = BaseUtil::WordReplace(file_input, "group_name",method_group_name);
+    result = BaseUtil::WordReplace(result, "methods",methods_code);
     if (out.is_open())
     {
         out << result;
