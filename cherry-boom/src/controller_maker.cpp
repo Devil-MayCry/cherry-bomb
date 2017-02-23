@@ -8,8 +8,7 @@
 
 #include "controller_maker.hpp"
 
-std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json::Value parameter_json) {
-    // get templete controller method, replace the tag as "${some_tag}" to create own code
+std::string ControllerMaker::MakeGetActionMethodCode(std::string methodName, Json::Value parameter_json) {
     std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
     std::string result ="";
     result = BaseUtil::WordReplace(file_input, "method_name", methodName);
@@ -19,14 +18,14 @@ std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json
         Json::Value::Members mem = parameter_json.getMemberNames();
         std::string parameter_validator_items = "";
         for(auto iter = mem.begin(); iter != mem.end(); iter++) {
-          std::string parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_templete, "parameter_name", *iter);
+            std::string parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_templete, "parameter_name", *iter);
             std::string to_parameter_type_valitor;
             if(parameter_json[*iter] == "number") {
-              to_parameter_type_valitor = "toNumber";
+                to_parameter_type_valitor = "toNumber";
             }else if(parameter_json[*iter] == "string") {
-              to_parameter_type_valitor = "toStr";
+                to_parameter_type_valitor = "toStr";
             }else {
-              to_parameter_type_valitor = "toNaN";
+                to_parameter_type_valitor = "toNaN";
             }
             parameter_validator_temp = BaseUtil::WordReplace(parameter_validator_temp, "parameter_type", parameter_json[*iter].asString());
             
@@ -34,11 +33,34 @@ std::string ControllerMaker::ControllerMethodsMaker(std::string methodName, Json
             parameter_validator_items += parameter_validator_temp;
             parameter_validator_items += "\n";
         }
-     std::string method_validator_content = BaseUtil::WordReplace(parameters_validator, "method_parameters_items", parameter_validator_items);
-     result = BaseUtil::WordReplace(result, "method_parameters_validator", method_validator_content);
-      
+        std::string method_validator_content = BaseUtil::WordReplace(parameters_validator, "method_parameters_items", parameter_validator_items);
+        result = BaseUtil::WordReplace(result, "method_parameters_validator", method_validator_content);
+        
     } else {
-     result = BaseUtil::WordReplace(result, "method_parameters_validator", "");
+        result = BaseUtil::WordReplace(result, "method_parameters_validator", "");
+    }
+    return result;
+}
+
+std::string ControllerMaker::MakePostActionMethodCode(std::string methodName) {
+    std:: string file_input = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/template/templatecontrollermethod.ts");
+    std::string result ="";
+    result = BaseUtil::WordReplace(file_input, "method_name", methodName);
+    result = BaseUtil::WordReplace(result, "method_parameters_validator", "");
+    return result;
+}
+
+std::string ControllerMaker::ControllerMethodsMaker(Json::Value method_json) {
+    // get templete controller method, replace the tag as "${some_tag}" to create own code
+    
+    std::string methodName = ControllerMaker::GetMethodName(method_json);
+    const char * action_type = method_json["content"][0]["content"][1]["content"][0]["attributes"]["method"].asString().c_str();
+    std::string result = "";
+    if(strcmp(action_type,"GET") == 0){
+        Json::Value parameter_json = ControllerMaker::GetMethodParameters(method_json);
+        result = ControllerMaker::MakeGetActionMethodCode( methodName, parameter_json);
+    }else if(strcmp(action_type,"POST") == 0){
+        result = ControllerMaker::MakePostActionMethodCode(methodName);
     }
     return result;
 }

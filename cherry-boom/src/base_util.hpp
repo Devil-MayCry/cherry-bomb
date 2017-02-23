@@ -16,7 +16,7 @@
 #include "json.h"
 #include <regex>
 
-#endif /* base_util_hpp */
+
 
 class BaseUtil {
     
@@ -27,5 +27,7 @@ public:
     static std::string WordReplace(std::string origin_string, std::string is_replaced_word, std::string replacing_word);
     
 };
+
+#endif /* base_util_hpp */
 
 

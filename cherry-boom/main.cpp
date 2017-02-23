@@ -55,9 +55,7 @@ void createControllerFile(Json::Value json) {
         for (int index_of_method = 1; index_of_method < each_group_json["content"].size(); index_of_method ++)
         {
             Json::Value each_method_in_group_json = each_group_json["content"][index_of_method];
-            std::string method_name = ControllerMaker::GetMethodName(each_method_in_group_json);
-            Json::Value method_parameters = ControllerMaker::GetMethodParameters(each_method_in_group_json);
-            std::string method_code = ControllerMaker::ControllerMethodsMaker(method_name, method_parameters);
+            std::string method_code = ControllerMaker::ControllerMethodsMaker(each_method_in_group_json);
             controller_methods_code.append(method_code+"\n");
         }
         
@@ -66,7 +64,7 @@ void createControllerFile(Json::Value json) {
 }
 
 int main(int argc, const char * argv[]) {
-    mdp::ByteBuffer blueprint = haze::FileSystem::readFile("main.cpp");
+    mdp::ByteBuffer blueprint = haze::FileSystem::readFile("/Users/huteng/api-cherry/cherry-boom/cherry-boom/test_data/test.apib");
     Json::Value value = ConvertBluePrintToJson(blueprint.c_str());
     createControllerFile(value);
  
